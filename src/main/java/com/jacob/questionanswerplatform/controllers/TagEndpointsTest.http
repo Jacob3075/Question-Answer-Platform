@@ -1,0 +1,27 @@
+GET http://localhost:8080/api/tags/
+Accept: application/json
+
+###
+
+POST http://localhost:8080/api/tags/
+Content-Type: application/json
+Accept: application/json
+
+{
+  "tagName": "New Tag 2"
+}
+
+###
+
+PUT http://localhost:8080/api/tags/3
+Content-Type: application/json
+
+{
+  "tagName": "New Tag 3"
+}
+
+###
+
+DELETE http://localhost:8080/api/tags/2
+
+###

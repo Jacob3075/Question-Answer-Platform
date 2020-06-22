@@ -19,11 +19,12 @@ public class Answer {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 
-	private String answer;
+	@Column(name = "answer")
+	private String answerText;
 
 	@ManyToMany(cascade = {CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH})
 	@JoinTable(
-			name = "answers_comments",
+			name = "answer_comments",
 			joinColumns = @JoinColumn(name = "answers_id", referencedColumnName = "id"),
 			inverseJoinColumns = @JoinColumn(name = "answer_comments_id", referencedColumnName = "id")
 	)

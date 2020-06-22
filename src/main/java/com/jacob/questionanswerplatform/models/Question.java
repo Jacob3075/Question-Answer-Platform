@@ -21,7 +21,8 @@ public class Question {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 
-	private String question;
+	@Column(name = "question")
+	private String questionText;
 
 	@ManyToMany(cascade = {CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH})
 	@JoinTable(

@@ -50,7 +50,7 @@ public class QuestionStream implements ForwardingStream<Question> {
 
 		Question questionToUpdate = optionalQuestion.get();
 
-		questionToUpdate.setQuestion(question.getQuestion());
+		questionToUpdate.setQuestionText(question.getQuestionText());
 		questionToUpdate.setCompanies(question.getCompanies());
 		questionToUpdate.setTags(question.getTags());
 		questionToUpdate.setSubTopics(question.getSubTopics());

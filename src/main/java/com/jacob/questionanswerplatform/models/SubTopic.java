@@ -1,6 +1,5 @@
 package com.jacob.questionanswerplatform.models;
 
-import ch.qos.logback.core.joran.action.ActionUtil;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
