@@ -6,6 +6,8 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
 
 @Data
 @NoArgsConstructor
@@ -21,4 +23,12 @@ public class Topic {
 
 	@Column(name = "topic_name")
 	private String topicName;
+
+	@ManyToMany(cascade = {CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH})
+	@JoinTable(
+			name = "sub_topic_topic",
+			joinColumns = @JoinColumn(name = "sub_topics_id", referencedColumnName = "id"),
+			inverseJoinColumns = @JoinColumn(name = "topics_id", referencedColumnName = "id")
+	)
+	private Set<SubTopic> subTopics = new HashSet<>();
 }
