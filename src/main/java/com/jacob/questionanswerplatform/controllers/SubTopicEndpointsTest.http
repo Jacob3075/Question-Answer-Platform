@@ -1,0 +1,27 @@
+GET http://localhost:8080/api/subtopics/
+Accept: application/json
+
+###
+
+POST http://localhost:8080/api/subtopics/
+Content-Type: application/json
+Accept: application/json
+
+{
+  "subTopicName": "New SubTopic 3"
+}
+
+###
+
+PUT http://localhost:8080/api/subtopics/1
+Content-Type: application/json
+
+{
+  "subTopicName": "New SubTopic 1"
+}
+
+###
+
+DELETE http://localhost:8080/api/subtopics/3
+
+###
