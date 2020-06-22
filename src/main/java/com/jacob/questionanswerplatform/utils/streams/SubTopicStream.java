@@ -2,6 +2,7 @@ package com.jacob.questionanswerplatform.utils.streams;
 
 import com.jacob.questionanswerplatform.daos.SubTopicDAO;
 import com.jacob.questionanswerplatform.models.SubTopic;
+import com.jacob.questionanswerplatform.models.Topic;
 
 import java.util.List;
 import java.util.Set;
@@ -43,10 +44,10 @@ public class SubTopicStream implements ForwardingStream<SubTopic> {
 		    .forEach(subTopicDAO::saveAndFlush);
 	}
 
-	public void removeSubTopicsFrom(Set<SubTopic> subTopics) {
+	public void removeSubTopicsFrom(Topic topic) {
 		Set<SubTopic> subTopicsToRemove = this.getStream()
 		                                      .collect(Collectors.toSet());
-		subTopicsToRemove.removeIf(subTopics::contains);
+		topic.getSubTopics().removeIf(subTopicsToRemove::contains);
 	}
 
 	public void addSubTopicsTo(Set<SubTopic> subTopics, SubTopicDAO subTopicDAO) {

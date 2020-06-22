@@ -1,12 +1,14 @@
 package com.jacob.questionanswerplatform.models;
 
 
+import com.jacob.questionanswerplatform.utils.streams.TopicStream;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 @Data
@@ -26,9 +28,21 @@ public class Topic {
 
 	@ManyToMany(cascade = {CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH})
 	@JoinTable(
-			name = "sub_topic_topic",
-			joinColumns = @JoinColumn(name = "sub_topics_id", referencedColumnName = "id"),
-			inverseJoinColumns = @JoinColumn(name = "topics_id", referencedColumnName = "id")
+			name = "topic_sub_topic",
+			joinColumns = @JoinColumn(name = "topics_id", referencedColumnName = "id"),
+			inverseJoinColumns = @JoinColumn(name = "sub_topics_id", referencedColumnName = "id")
 	)
 	private Set<SubTopic> subTopics = new HashSet<>();
+
+	public static TopicStream stream(List<Topic> topics) {
+		return new TopicStream(topics);
+	}
+
+	public static TopicStream stream(Topic topic) {
+		return new TopicStream(List.of(topic));
+	}
+
+	public static TopicStream stream() {
+		return new TopicStream(List.of());
+	}
 }
