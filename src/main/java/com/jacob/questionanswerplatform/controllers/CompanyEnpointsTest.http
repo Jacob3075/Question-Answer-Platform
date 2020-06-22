@@ -1,0 +1,27 @@
+GET http://localhost:8080/api/companies/
+Accept: application/json
+
+###
+
+POST http://localhost:8080/api/companies/
+Content-Type: application/json
+Accept: application/json
+
+{
+  "companyName": "New Company 3"
+}
+
+###
+
+PUT http://localhost:8080/api/companies/1
+Content-Type: application/json
+
+{
+  "companyName": "New Company 1"
+}
+
+###
+
+DELETE http://localhost:8080/api/companies/3
+
+###
