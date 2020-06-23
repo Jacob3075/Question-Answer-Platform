@@ -1,4 +1,4 @@
-GET http://localhost:8080/api/answers/4
+GET http://localhost:8080/api/answers/1
 Accept: application/json
 
 ###
@@ -8,7 +8,7 @@ Accept: application/json
 Content-Type: application/json
 
 {
-  "answerText": "New answer posted using AnswerDTO object with validation",
+  "answerText": "New answer ",
   "userId": 1,
   "questionId": 1
 }

@@ -1,0 +1,14 @@
+GET http://localhost:8080/api/comments/1
+Accept: application/json
+
+###
+
+POST http://localhost:8080/api/comments/
+Accept: application/json
+Content-Type: application/json
+
+{
+  "commentText": "New comment ",
+  "userId": 1,
+  "answerId": 1
+}

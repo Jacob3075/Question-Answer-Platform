@@ -35,7 +35,7 @@ public class QuestionService {
 		this.answerService = answerService;
 	}
 
-	public Long addNewQuestion(PostQuestionDTO postQuestionDTO) {
+	public Long postQuestion(PostQuestionDTO postQuestionDTO) {
 		Question question = new Question();
 		question.setQuestionText(postQuestionDTO.getQuestionText());
 		question.setAnswers(new ArrayList<>());
@@ -60,12 +60,17 @@ public class QuestionService {
 		return questionDAO.saveAndFlush(question).getId();
 	}
 
-	public GetQuestionDTO findQuestionById(Long id) {
-		GetQuestionDTO     questionDTO      = new GetQuestionDTO();
+	public GetQuestionDTO getQuestionDTO(Long id) {
 		Optional<Question> optionalQuestion = questionDAO.findById(id);
 		if (optionalQuestion.isEmpty()) throw new HttpClientErrorException(HttpStatus.NOT_FOUND);
 
 		Question question = optionalQuestion.get();
+
+		return getQuestionDTO(question);
+	}
+
+	public GetQuestionDTO getQuestionDTO(Question question) {
+		GetQuestionDTO     questionDTO      = new GetQuestionDTO();
 
 		questionDTO.setQuestionText(question.getQuestionText());
 		questionDTO.setCompanies(question.getCompanies());
@@ -81,5 +86,6 @@ public class QuestionService {
 		questionDTO.setAnswers(answerDTOs);
 
 		return questionDTO;
+
 	}
 }

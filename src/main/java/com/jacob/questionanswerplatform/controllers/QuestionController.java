@@ -19,11 +19,11 @@ public class QuestionController {
 
 	@PostMapping(value = "/")
 	public Long newQuestion(@Valid @RequestBody PostQuestionDTO postQuestionDTO) {
-		return questionService.addNewQuestion(postQuestionDTO);
+		return questionService.postQuestion(postQuestionDTO);
 	}
 
 	@GetMapping(value = "/{id}")
 	public GetQuestionDTO findQuestionById(@PathVariable Long id) {
-		return questionService.findQuestionById(id);
+		return questionService.getQuestionDTO(id);
 	}
 }

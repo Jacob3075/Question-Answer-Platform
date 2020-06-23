@@ -1,4 +1,4 @@
-GET http://localhost:8080/api/questions/4
+GET http://localhost:8080/api/questions/1
 Accept: application/json
 
 ###

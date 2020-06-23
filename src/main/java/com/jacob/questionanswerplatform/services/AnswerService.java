@@ -25,11 +25,13 @@ public class AnswerService {
 	private final UserDAO   userDAO;
 
 	private final QuestionDAO questionDAO;
+	private final CommentService commentService;
 
-	public AnswerService(AnswerDAO answerDAO, UserDAO userDAO, QuestionDAO questionDAO) {
+	public AnswerService(AnswerDAO answerDAO, UserDAO userDAO, QuestionDAO questionDAO, CommentService commentService) {
 		this.answerDAO = answerDAO;
 		this.userDAO = userDAO;
 		this.questionDAO = questionDAO;
+		this.commentService = commentService;
 	}
 
 	public Long postAnswer(PostAnswerDTO answerDTO) {
@@ -74,13 +76,7 @@ public class AnswerService {
 		List<GetCommentDTO> commentDTOs    = new ArrayList<>();
 		List<AnswerComment> answerComments = answer.getAnswerComments();
 
-		answerComments.forEach(comment -> {
-			GetCommentDTO commentDTO = new GetCommentDTO();
-			commentDTO.setCommentText(comment.getComment());
-			commentDTO.setUserId(comment.getUser().getId());
-			commentDTO.setDate(comment.getDate());
-			commentDTOs.add(commentDTO);
-		});
+		answerComments.forEach(comment -> commentDTOs.add(commentService.getCommentDTO(comment)));
 
 		answerDTO.setAnswerComments(commentDTOs);
 		return answerDTO;
