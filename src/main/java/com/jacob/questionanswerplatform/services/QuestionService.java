@@ -7,6 +7,7 @@ import com.jacob.questionanswerplatform.daos.UserDAO;
 import com.jacob.questionanswerplatform.dtos.GetAnswerDTO;
 import com.jacob.questionanswerplatform.dtos.GetQuestionDTO;
 import com.jacob.questionanswerplatform.dtos.PostQuestionDTO;
+import com.jacob.questionanswerplatform.dtos.QuestionLikeDTO;
 import com.jacob.questionanswerplatform.models.Question;
 import com.jacob.questionanswerplatform.models.Tag;
 import org.springframework.http.HttpStatus;
@@ -70,7 +71,7 @@ public class QuestionService {
 	}
 
 	public GetQuestionDTO getQuestionDTO(Question question) {
-		GetQuestionDTO     questionDTO      = new GetQuestionDTO();
+		GetQuestionDTO questionDTO = new GetQuestionDTO();
 
 		questionDTO.setQuestionText(question.getQuestionText());
 		questionDTO.setCompanies(question.getCompanies());
@@ -87,5 +88,19 @@ public class QuestionService {
 
 		return questionDTO;
 
+	}
+
+	public void like(QuestionLikeDTO questionLikeDTO) {
+		if (userDAO.findById(questionLikeDTO.getUserId()).isEmpty())
+			throw new HttpClientErrorException(HttpStatus.NOT_FOUND);
+
+		Optional<Question> optionalQuestion = questionDAO.findById(questionLikeDTO.getQuestionId());
+
+		if (optionalQuestion.isEmpty()) throw new HttpClientErrorException(HttpStatus.NOT_FOUND);
+
+		Question question = optionalQuestion.get();
+		question.setLikes(question.getLikes() + 1);
+
+		questionDAO.saveAndFlush(question);
 	}
 }

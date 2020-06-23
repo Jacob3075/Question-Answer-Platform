@@ -1,3 +1,99 @@
+GET http://localhost:8080/api/questions/1
+Accept: application/json
+
+<> 2020-06-23T102514.200.json
+
+###
+
+POST http://localhost:8080/api/questions/like
+Content-Type: application/json
+
+{
+  "userId": 1,
+  "questionId": 1
+}
+
+###
+
+GET http://localhost:8080/api/questions/1
+Accept: application/json
+
+<> 2020-06-23T102443.200.json
+
+###
+
+GET http://localhost:8080/api/answers/1
+Accept: application/json
+
+<> 2020-06-23T102355.200.json
+
+###
+
+POST http://localhost:8080/api/answers/like
+Content-Type: application/json
+
+{
+  "userId": 1,
+  "answerId": 1
+}
+
+###
+
+GET http://localhost:8080/api/answers/1
+Accept: application/json
+
+<> 2020-06-23T102342.200.json
+
+###
+
+GET http://localhost:8080/api/answers/2
+Accept: application/json
+
+<> 2020-06-23T102336.200.json
+
+###
+
+POST http://localhost:8080/api/answers/like
+Content-Type: application/json
+
+{
+  "userId": 1,
+  "answerId": 2
+}
+
+###
+
+GET http://localhost:8080/api/answers/2
+Accept: application/json
+
+<> 2020-06-23T102320.200.json
+
+###
+
+GET http://localhost:8080/api/answers/1
+Accept: application/json
+
+<> 2020-06-23T101859.200.json
+
+###
+
+POST http://localhost:8080/api/answers/like
+Content-Type: application/json
+
+{
+  "userId": 1,
+  "answerId": 1
+}
+
+###
+
+GET http://localhost:8080/api/answers/1
+Accept: application/json
+
+<> 2020-06-23T101833.200.json
+
+###
+
 GET http://localhost:8080/api/answers/1
 Accept: application/json
 
@@ -361,90 +457,6 @@ GET http://localhost:8080/api/questions/
 Accept: application/json
 
 <> 2020-06-22T101806.500.json
-
-###
-
-GET http://localhost:8080/api/questions/
-Accept: application/json
-
-<> 2020-06-22T101224.200.json
-
-###
-
-GET http://localhost:8080/api/questions/
-Accept: application/json
-
-<> 2020-06-22T100852.500.json
-
-###
-
-GET http://localhost:8080/api/questions/
-Accept: application/json
-
-<> 2020-06-22T100002.500.json
-
-###
-
-GET http://localhost:8080/api/questions/
-Accept: application/json
-
-<> 2020-06-22T095840.500.json
-
-###
-
-GET http://localhost:8080/api/questions/
-Accept: application/json
-
-<> 2020-06-22T095432.500.json
-
-###
-
-GET http://localhost:8080/api/questions/
-Accept: application/json
-
-<> 2020-06-22T095000.500.json
-
-###
-
-GET http://localhost:8080/api/questions/
-Accept: application/json
-
-<> 2020-06-22T094156.500.json
-
-###
-
-GET http://localhost:8080/api/questions/
-Accept: application/json
-
-<> 2020-06-22T042755.500.json
-
-###
-
-GET http://localhost:8080/api/questions/
-Accept: application/json
-
-<> 2020-06-22T042525.500.json
-
-###
-
-GET http://localhost:8080/api/questions/
-Accept: application/json
-
-<> 2020-06-22T030923.200.json
-
-###
-
-GET http://localhost:8080/api/questions/
-Accept: application/json
-
-<> 2020-06-22T030747.200.json
-
-###
-
-GET http://localhost:8080/api/subtopics/
-Accept: application/json
-
-<> 2020-06-22T023806.200.json
 
 ###
 

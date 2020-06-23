@@ -3,6 +3,7 @@ package com.jacob.questionanswerplatform.services;
 import com.jacob.questionanswerplatform.daos.AnswerDAO;
 import com.jacob.questionanswerplatform.daos.QuestionDAO;
 import com.jacob.questionanswerplatform.daos.UserDAO;
+import com.jacob.questionanswerplatform.dtos.AnswerLikeDTO;
 import com.jacob.questionanswerplatform.dtos.GetAnswerDTO;
 import com.jacob.questionanswerplatform.dtos.GetCommentDTO;
 import com.jacob.questionanswerplatform.dtos.PostAnswerDTO;
@@ -24,10 +25,11 @@ public class AnswerService {
 	private final AnswerDAO answerDAO;
 	private final UserDAO   userDAO;
 
-	private final QuestionDAO questionDAO;
+	private final QuestionDAO    questionDAO;
 	private final CommentService commentService;
 
-	public AnswerService(AnswerDAO answerDAO, UserDAO userDAO, QuestionDAO questionDAO, CommentService commentService) {
+	public AnswerService(AnswerDAO answerDAO, UserDAO userDAO, QuestionDAO questionDAO,
+	                     CommentService commentService) {
 		this.answerDAO = answerDAO;
 		this.userDAO = userDAO;
 		this.questionDAO = questionDAO;
@@ -61,7 +63,7 @@ public class AnswerService {
 		Optional<Answer> optionalAnswer = answerDAO.findById(id);
 		if (optionalAnswer.isEmpty()) throw new HttpClientErrorException(HttpStatus.NOT_FOUND);
 
-		Answer       answer    = optionalAnswer.get();
+		Answer answer = optionalAnswer.get();
 
 		return this.getAnswerDTO(answer);
 	}
@@ -80,5 +82,18 @@ public class AnswerService {
 
 		answerDTO.setAnswerComments(commentDTOs);
 		return answerDTO;
+	}
+
+	public void like(AnswerLikeDTO answerLikeDTO) {
+		if (userDAO.findById(answerLikeDTO.getUserId()).isEmpty())
+			throw new HttpClientErrorException(HttpStatus.NOT_FOUND);
+
+		Optional<Answer> optionalAnswer = answerDAO.findById(answerLikeDTO.getAnswerId());
+		if (optionalAnswer.isEmpty()) throw new HttpClientErrorException(HttpStatus.NOT_FOUND);
+
+		Answer answer = optionalAnswer.get();
+		answer.setLikes(answer.getLikes() + 1);
+
+		answerDAO.saveAndFlush(answer);
 	}
 }

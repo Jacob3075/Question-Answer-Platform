@@ -1,5 +1,6 @@
 package com.jacob.questionanswerplatform.controllers;
 
+import com.jacob.questionanswerplatform.dtos.AnswerLikeDTO;
 import com.jacob.questionanswerplatform.dtos.GetAnswerDTO;
 import com.jacob.questionanswerplatform.dtos.PostAnswerDTO;
 import com.jacob.questionanswerplatform.services.AnswerService;
@@ -25,5 +26,10 @@ public class AnswerController {
 	@GetMapping(value = "/{id}")
 	public GetAnswerDTO getAnswer(@PathVariable Long id) {
 		return answerService.getAnswerDTO(id);
+	}
+
+	@PostMapping(value = "/like")
+	public void likeAnswer(@Valid @RequestBody AnswerLikeDTO answerLikeDTO) {
+		answerService.like(answerLikeDTO);
 	}
 }

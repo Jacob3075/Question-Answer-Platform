@@ -12,3 +12,15 @@ Content-Type: application/json
   "userId": 1,
   "questionId": 1
 }
+
+###
+
+POST http://localhost:8080/api/answers/like
+Content-Type: application/json
+
+{
+  "userId": 1,
+  "answerId": 1
+}
+
+###
