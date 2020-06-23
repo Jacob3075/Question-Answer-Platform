@@ -1,14 +1,14 @@
 package com.jacob.questionanswerplatform.controllers;
 
+import com.jacob.questionanswerplatform.dtos.GetQuestionDTO;
+import com.jacob.questionanswerplatform.dtos.PostQuestionDTO;
 import com.jacob.questionanswerplatform.models.Question;
 import com.jacob.questionanswerplatform.services.QuestionService;
-import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.client.HttpClientErrorException;
 
 import javax.servlet.http.HttpServletResponse;
+import javax.validation.Valid;
 import java.util.List;
-import java.util.Optional;
 
 @RestController
 @RequestMapping(value = "api/questions")
@@ -25,19 +25,6 @@ public class QuestionController {
 		return questionService.getAllQuestions();
 	}
 
-	@GetMapping(value = "/{id}")
-	public Question getQuestionById(@PathVariable Long id) {
-		Optional<Question> optionalQuestion = questionService.getQuestionById(id);
-		if (optionalQuestion.isEmpty()) throw new HttpClientErrorException(HttpStatus.NOT_FOUND);
-
-		return optionalQuestion.get();
-	}
-
-	@PostMapping(value = "/")
-	public void addQuestion(Question question) {
-		questionService.save(question);
-	}
-
 	@PutMapping(value = "/{id}")
 	public void updateQuestion(@PathVariable Long id, @RequestBody Question updatedQuestion,
 	                           HttpServletResponse response) {
@@ -51,6 +38,16 @@ public class QuestionController {
 	@DeleteMapping(value = "/{id}")
 	public void deleteQuestion(@PathVariable Long id) {
 		questionService.deleteQuestion(id);
+	}
+
+	@PostMapping(value = "/")
+	public Long newQuestion(@Valid @RequestBody PostQuestionDTO postQuestionDTO) {
+		return questionService.addNewQuestion(postQuestionDTO);
+	}
+
+	@GetMapping(value = "/{id}")
+	public GetQuestionDTO findQuestionById(@PathVariable Long id) {
+		return questionService.findQuestionById(id);
 	}
 
 }
