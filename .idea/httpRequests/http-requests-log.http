@@ -1,3 +1,67 @@
+GET http://localhost:8080/api/answers/4
+Accept: application/json
+
+<> 2020-06-23T091551.200.json
+
+###
+
+POST http://localhost:8080/api/answers/
+Accept: application/json
+Content-Type: application/json
+
+{
+  "answerText": "New answer posted using AnswerDTO object with validation",
+  "userId": 1,
+  "questionId": 1
+}
+
+<> 2020-06-23T091545.200.json
+
+###
+
+GET http://localhost:8080/api/answers/1
+Accept: application/json
+
+<> 2020-06-23T091533.200.json
+
+###
+
+GET http://localhost:8080/api/answers/1
+Accept: application/json
+
+<> 2020-06-23T122946.200.json
+
+###
+
+GET http://localhost:8080/api/answers
+/1:
+Accept: application/json
+
+<> 2020-06-23T122923.400.html
+
+###
+
+GET http://localhost:8080/api/questions/1
+Accept: application/json
+
+<> 2020-06-23T122843.200.json
+
+###
+
+GET http://localhost:8080/api/questions/1
+Accept: application/json
+
+<> 2020-06-23T122117.200.json
+
+###
+
+GET http://localhost:8080/api/questions/4
+Accept: application/json
+
+<> 2020-06-23T122031.200.json
+
+###
+
 GET http://localhost:8080/api/questions/4
 Accept: application/json
 
@@ -400,106 +464,6 @@ Accept: application/json
 }
 
 <> 2020-06-22T021936.500.json
-
-###
-
-GET http://localhost:8080/api/topics/
-Accept: application/json
-
-<> 2020-06-22T021908.200.json
-
-###
-
-POST http://localhost:8080/api/topics/
-Content-Type: application/json
-Accept: application/json
-
-{
-  "topicName": "Topic 4",
-  "subTopics": [
-    {
-      "subTopicName": "Sub Topic 1"
-    },
-    {
-      "subTopicName": "Sub Topic 4"
-    }
-  ]
-}
-
-<> 2020-06-22T021739.500.json
-
-###
-
-GET http://localhost:8080/api/topics/
-Accept: application/json
-
-<> 2020-06-22T021637.200.json
-
-###
-
-POST http://localhost:8080/api/topics/
-Content-Type: application/json
-Accept: application/json
-
-{
-  "topicName": "Topic 3",
-  "subTopics": [
-    {
-      "subTopicName": "SubTopic 1"
-    },
-    {
-      "subTopicName": "Sub Topic 4"
-    }
-  ]
-}
-
-<> 2020-06-22T021634.200.json
-
-###
-
-POST http://localhost:8080/api/subtopics/
-Content-Type: application/json
-Accept: application/json
-
-{
-  "subTopicName": "New SubTopic 3"
-}
-
-<> 2020-06-22T021626.200.json
-
-###
-
-GET http://localhost:8080/api/subtopics/
-Accept: application/json
-
-<> 2020-06-22T021621.200.json
-
-###
-
-GET http://localhost:8080/api/topics/
-Accept: application/json
-
-<> 2020-06-22T021615.200.json
-
-###
-
-POST http://localhost:8080/api/topics/
-Content-Type: application/json
-Accept: application/json
-
-{
-  "topicName": "Topic 3",
-  "subTopics": [
-    {
-      "subTopicName": "SubTopic 1"
-    },
-    {
-      "subTopicName": "Sub Topic 4"
-    }
-  ]
-}
-
-<> 2020-06-22T021531.500.json
 
 ###
 
