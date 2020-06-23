@@ -14,14 +14,14 @@ import java.util.Set;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name = "sub_topics")
+@Table(name = "subtopics")
 public class SubTopic {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 
-	@Column(name = "sub_topic_name")
+	@Column(name = "subtopic")
 	private String subTopicName;
 
 

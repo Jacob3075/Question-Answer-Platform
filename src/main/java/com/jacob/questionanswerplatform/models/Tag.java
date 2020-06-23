@@ -17,7 +17,7 @@ public class Tag {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 
-	@Column(name = "tag_name")
+	@Column(name = "tag")
 	private String tagName;
 
 }

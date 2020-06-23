@@ -28,9 +28,9 @@ public class Topic {
 
 	@ManyToMany(cascade = {CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH})
 	@JoinTable(
-			name = "topic_sub_topic",
+			name = "topic_subtopic",
 			joinColumns = @JoinColumn(name = "topics_id", referencedColumnName = "id"),
-			inverseJoinColumns = @JoinColumn(name = "sub_topics_id", referencedColumnName = "id")
+			inverseJoinColumns = @JoinColumn(name = "subtopics_id", referencedColumnName = "id")
 	)
 	private Set<SubTopic> subTopics = new HashSet<>();
 

@@ -1,12 +1,13 @@
 package com.jacob.questionanswerplatform.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.ArrayList;
+import java.util.List;
 
 @Data
 @NoArgsConstructor
@@ -22,12 +23,19 @@ public class Answer {
 	@Column(name = "answer")
 	private String answerText;
 
-	@ManyToMany(cascade = {CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH})
-	@JoinTable(
-			name = "answer_comments",
-			joinColumns = @JoinColumn(name = "answers_id", referencedColumnName = "id"),
-			inverseJoinColumns = @JoinColumn(name = "answer_comments_id", referencedColumnName = "id")
-	)
-	private Set<AnswerComment> answerComments = new HashSet<>();
+	private int likes;
+
+	@ManyToOne
+	@JoinColumn(name = "users_id")
+	@JsonIgnoreProperties({"answers", "questions", "answerComments"})
+	private User user;
+
+	@ManyToOne
+	@JoinColumn(name = "questions_id")
+	private Question question;
+
+	@OneToMany(mappedBy = "answer")
+	@JsonIgnoreProperties({"answer"})
+	private List<AnswerComment> answerComments = new ArrayList<>();
 
 }
