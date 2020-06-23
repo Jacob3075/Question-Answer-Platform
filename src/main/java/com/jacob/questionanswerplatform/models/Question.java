@@ -53,11 +53,11 @@ public class Question {
 
 	@ManyToMany(cascade = {CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH})
 	@JoinTable(
-			name = "question_topic",
+			name = "question_subtopic",
 			joinColumns = @JoinColumn(name = "questions_id", referencedColumnName = "id"),
-			inverseJoinColumns = @JoinColumn(name = "topics_id", referencedColumnName = "id")
+			inverseJoinColumns = @JoinColumn(name = "subtopics_id", referencedColumnName = "id")
 	)
-	private List<Topic> topics = new ArrayList<>();
+	private List<SubTopic> subTopics = new ArrayList<>();
 
 
 	public static QuestionStream stream(List<Question> questions) {

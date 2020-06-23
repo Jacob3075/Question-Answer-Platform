@@ -29,5 +29,5 @@ public class User {
 	private List<Question> questions = new ArrayList<>();
 
 	@OneToMany(mappedBy = "user")
-	private List<AnswerComment> answerComments = new ArrayList<>();
+	private List<Comment> comments = new ArrayList<>();
 }

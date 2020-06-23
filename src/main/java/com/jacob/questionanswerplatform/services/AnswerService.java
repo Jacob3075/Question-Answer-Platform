@@ -8,7 +8,7 @@ import com.jacob.questionanswerplatform.dtos.GetAnswerDTO;
 import com.jacob.questionanswerplatform.dtos.GetCommentDTO;
 import com.jacob.questionanswerplatform.dtos.PostAnswerDTO;
 import com.jacob.questionanswerplatform.models.Answer;
-import com.jacob.questionanswerplatform.models.AnswerComment;
+import com.jacob.questionanswerplatform.models.Comment;
 import com.jacob.questionanswerplatform.models.Question;
 import com.jacob.questionanswerplatform.models.User;
 import org.springframework.http.HttpStatus;
@@ -39,7 +39,7 @@ public class AnswerService {
 	public Long postAnswer(PostAnswerDTO answerDTO) {
 		Answer answer = new Answer();
 
-		answer.setAnswerComments(new ArrayList<>());
+		answer.setComments(new ArrayList<>());
 		answer.setAnswerText(answerDTO.getAnswerText());
 		answer.setLikes(0);
 
@@ -75,10 +75,10 @@ public class AnswerService {
 		answerDTO.setAnswerText(answer.getAnswerText());
 		answerDTO.setUserId(answer.getUser().getId());
 
-		List<GetCommentDTO> commentDTOs    = new ArrayList<>();
-		List<AnswerComment> answerComments = answer.getAnswerComments();
+		List<GetCommentDTO> commentDTOs = new ArrayList<>();
+		List<Comment>       comments    = answer.getComments();
 
-		answerComments.forEach(comment -> commentDTOs.add(commentService.getCommentDTO(comment)));
+		comments.forEach(comment -> commentDTOs.add(commentService.getCommentDTO(comment)));
 
 		answerDTO.setAnswerComments(commentDTOs);
 		return answerDTO;

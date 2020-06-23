@@ -50,8 +50,8 @@ public class QuestionService {
 		userDAO.findById(postQuestionDTO.getUserId())
 		       .ifPresent(question::setUser);
 
-//		TODO
-//		question.setTopics();
+		subTopicDAO.findById(postQuestionDTO.getSubTopicId())
+		           .ifPresent(question.getSubTopics()::add);
 
 		List<Tag> tags = postQuestionDTO.getTags();
 		if (tags != null) {
@@ -75,7 +75,7 @@ public class QuestionService {
 
 		questionDTO.setQuestionText(question.getQuestionText());
 		questionDTO.setCompanies(question.getCompanies());
-		questionDTO.setTopics(question.getTopics());
+		questionDTO.setSubTopics(question.getSubTopics());
 		questionDTO.setTags(question.getTags());
 		questionDTO.setLikes(question.getLikes());
 

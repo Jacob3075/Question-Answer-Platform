@@ -13,7 +13,7 @@ import java.sql.Date;
 @AllArgsConstructor
 @Entity
 @Table(name = "comments")
-public class AnswerComment {
+public class Comment {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)

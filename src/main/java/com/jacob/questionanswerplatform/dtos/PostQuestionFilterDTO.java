@@ -6,17 +6,30 @@ import com.jacob.questionanswerplatform.models.Tag;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.lang.Nullable;
 
+import java.sql.Date;
 import java.util.List;
 
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class GetQuestionDTO {
-	private String             questionText;
-	private List<GetAnswerDTO> answers;
-	private int                likes;
-	private List<Company>      companies;
-	private List<Tag>          tags;
-	private List<SubTopic>     subTopics;
+public class PostQuestionFilterDTO {
+
+	@Nullable
+	private List<Company> companies;
+
+	@Nullable
+	private List<Tag> tags;
+
+	@Nullable
+	private List<SubTopic> subTopics;
+
+	@Nullable
+	private int likesCount;
+
+	@Nullable
+	private Date date;
+
+
 }

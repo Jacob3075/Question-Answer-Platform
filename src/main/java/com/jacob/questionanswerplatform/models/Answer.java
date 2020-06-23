@@ -36,6 +36,6 @@ public class Answer {
 
 	@OneToMany(mappedBy = "answer")
 	@JsonIgnoreProperties({"answer"})
-	private List<AnswerComment> answerComments = new ArrayList<>();
+	private List<Comment> comments = new ArrayList<>();
 
 }
