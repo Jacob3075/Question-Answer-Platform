@@ -19,7 +19,8 @@ public class Comment {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 
-	private String comment;
+	@Column(name = "comment")
+	private String commentText;
 
 	@ManyToOne
 	@JoinColumn(name = "answers_id")

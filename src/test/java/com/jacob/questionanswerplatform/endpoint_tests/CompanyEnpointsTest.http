@@ -8,16 +8,16 @@ Content-Type: application/json
 Accept: application/json
 
 {
-  "companyName": "New Company 3"
+  "companyName": "Company 3"
 }
 
 ###
 
-PUT http://localhost:8080/api/companies/1
+PUT http://localhost:8080/api/companies/3
 Content-Type: application/json
 
 {
-  "companyName": "New Company 1"
+  "companyName": "New Company 3"
 }
 
 ###

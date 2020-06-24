@@ -1,4 +1,4 @@
-GET http://localhost:8080/api/questions/1
+GET http://localhost:8080/api/questions/3
 Accept: application/json
 
 ###
@@ -7,9 +7,11 @@ POST http://localhost:8080/api/questions/
 Content-Type: application/json
 
 {
-  "questionText": "Questionhfbvedyuvbrybvedgbfovbhrbcvxbunrbviruecnvuyvinuvxunvuivinviunvrunscinvxvgviutvsinvnkuavxmkufdbcukxvukvugrvvrvxrnvrcxvvgnvngjvnvcrgcvgsdfnxgvnsvnikvcgurckv",
+  "questionText": "Question posted from endpoint using DTO with validation",
   "userId": 1,
-  "subTopicId": 1
+  "subTopicId": 1,
+  "companyId": 1,
+  "tags": []
 }
 
 ###
@@ -19,7 +21,7 @@ Content-Type: application/json
 
 {
   "userId": 1,
-  "questionId": 1
+  "questionId": 3
 }
 
 ###
@@ -29,7 +31,12 @@ Content-Type: application/json
 Accept: application/json
 
 {
-  "likesCount": 0
+  "companies": [
+    {
+      "id": 2,
+      "companyName": "Company 2"
+    }
+  ]
 }
 
 ###

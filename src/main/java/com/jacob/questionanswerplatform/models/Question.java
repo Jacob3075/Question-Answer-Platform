@@ -66,13 +66,4 @@ public class Question {
 	public static QuestionStream stream(List<Question> questions) {
 		return new QuestionStream(questions);
 	}
-
-	public static QuestionStream stream(Question question) {
-		return new QuestionStream(List.of(question));
-	}
-
-	public static QuestionStream stream() {
-		return new QuestionStream(List.of());
-	}
-
 }

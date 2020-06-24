@@ -13,15 +13,15 @@ Accept: application/json
 
 ###
 
-PUT http://localhost:8080/api/subtopics/1
+PUT http://localhost:8080/api/subtopics/4
 Content-Type: application/json
 
 {
-  "subTopicName": "New SubTopic 1"
+  "subTopicName": "New SubTopic 4"
 }
 
 ###
 
-DELETE http://localhost:8080/api/subtopics/8
+DELETE http://localhost:8080/api/subtopics/5
 
 ###

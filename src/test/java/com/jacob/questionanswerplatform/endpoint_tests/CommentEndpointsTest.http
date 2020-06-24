@@ -1,4 +1,4 @@
-GET http://localhost:8080/api/comments/1
+GET http://localhost:8080/api/comments/5
 Accept: application/json
 
 ###
@@ -8,7 +8,9 @@ Accept: application/json
 Content-Type: application/json
 
 {
-  "commentText": "New comment ",
+  "commentText": "New comment posted from endpoints using DTO with validation",
   "userId": 1,
   "answerId": 1
 }
+
+###

@@ -31,7 +31,7 @@ public class CommentService {
 	public Long postComment(PostCommentDTO commentDTO) {
 		Comment comment = new Comment();
 
-		comment.setComment(commentDTO.getCommentText());
+		comment.setCommentText(commentDTO.getCommentText());
 		comment.setDate(Date.valueOf(LocalDate.now()));
 
 		answerDAO.findById(commentDTO.getAnswerId())
@@ -58,7 +58,7 @@ public class CommentService {
 
 		GetCommentDTO commentDTO = new GetCommentDTO();
 
-		commentDTO.setCommentText(comment.getComment());
+		commentDTO.setCommentText(comment.getCommentText());
 		commentDTO.setDate(comment.getDate());
 		commentDTO.setUserId(comment.getUser().getId());
 

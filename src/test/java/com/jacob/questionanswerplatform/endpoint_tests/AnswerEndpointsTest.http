@@ -8,7 +8,7 @@ Accept: application/json
 Content-Type: application/json
 
 {
-  "answerText": "New answer ",
+  "answerText": "New answer posted from endpoints using DTO with validation",
   "userId": 1,
   "questionId": 1
 }

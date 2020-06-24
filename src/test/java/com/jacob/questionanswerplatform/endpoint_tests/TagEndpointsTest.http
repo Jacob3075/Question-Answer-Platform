@@ -8,20 +8,20 @@ Content-Type: application/json
 Accept: application/json
 
 {
-  "tagName": "New Tag 2"
+  "tagName": "Tag 5"
 }
 
 ###
 
-PUT http://localhost:8080/api/tags/3
+PUT http://localhost:8080/api/tags/4
 Content-Type: application/json
 
 {
-  "tagName": "New Tag 3"
+  "tagName": "Tag 4"
 }
 
 ###
 
-DELETE http://localhost:8080/api/tags/2
+DELETE http://localhost:8080/api/tags/4
 
 ###

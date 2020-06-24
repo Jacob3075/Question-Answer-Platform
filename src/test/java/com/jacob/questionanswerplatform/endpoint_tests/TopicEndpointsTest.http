@@ -11,10 +11,10 @@ Accept: application/json
   "topicName": "Topic 5",
   "subTopics": [
     {
-      "subTopicName": "New SubTopic 2"
+      "subTopicName": "SubTopic 2"
     },
     {
-      "subTopicName": "New SubTopic 10"
+      "subTopicName": "SubTopic 3"
     }
   ]
 }
@@ -28,8 +28,7 @@ Content-Type: application/json
   "topicName": "Topic 2",
   "subTopics": [
     {
-      "id": 1,
-      "subTopicName": "New SubTopic 1"
+      "subTopicName": "SubTopic 1"
     },
     {
       "subTopicName": "New SubTopic 3"
