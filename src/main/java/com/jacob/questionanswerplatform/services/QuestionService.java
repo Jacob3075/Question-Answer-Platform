@@ -4,10 +4,7 @@ import com.jacob.questionanswerplatform.daos.CompanyDAO;
 import com.jacob.questionanswerplatform.daos.QuestionDAO;
 import com.jacob.questionanswerplatform.daos.SubTopicDAO;
 import com.jacob.questionanswerplatform.daos.UserDAO;
-import com.jacob.questionanswerplatform.dtos.GetAnswerDTO;
-import com.jacob.questionanswerplatform.dtos.GetQuestionDTO;
-import com.jacob.questionanswerplatform.dtos.PostQuestionDTO;
-import com.jacob.questionanswerplatform.dtos.QuestionLikeDTO;
+import com.jacob.questionanswerplatform.dtos.*;
 import com.jacob.questionanswerplatform.models.Question;
 import com.jacob.questionanswerplatform.models.Tag;
 import org.springframework.http.HttpStatus;
@@ -17,6 +14,7 @@ import org.springframework.web.client.HttpClientErrorException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Service
 public class QuestionService {
@@ -103,4 +101,25 @@ public class QuestionService {
 
 		questionDAO.saveAndFlush(question);
 	}
+
+	public List<GetQuestionFilterDTO> filterBy(PostQuestionFilterDTO questionFilterDTO) {
+		return Question.stream(questionDAO.findAll())
+		               .filterByLikesGreaterThan(Optional.ofNullable(questionFilterDTO.getLikesCount()))
+		               .filterByDatePostedOn(Optional.ofNullable(questionFilterDTO.getDate()))
+		               .filterByContains(
+				               Optional.ofNullable(questionFilterDTO.getCompanies()),
+				               Question::getCompanies
+		               )
+		               .filterByContains(
+				               Optional.ofNullable(questionFilterDTO.getTags()),
+				               Question::getTags
+		               )
+		               .filterByContains(
+				               Optional.ofNullable(questionFilterDTO.getSubTopics()),
+				               Question::getSubTopics
+		               )
+		               .toFilterDTO()
+		               .collect(Collectors.toList());
+	}
+
 }

@@ -7,11 +7,9 @@ POST http://localhost:8080/api/questions/
 Content-Type: application/json
 
 {
-  "questionText":
-  "Questionhfbvedyuvbrybvedgbfovbhrbcvxbunrbviruecnvuyvinuvxunvuivinviunvrunscinvxvgviutvsinvnkuavxmkufdbcukxvukvugrvvrvxrnvrcxvvgnvngjvnvcrgcvgsdfnxgvnsvnikvcgurckv",
+  "questionText": "Questionhfbvedyuvbrybvedgbfovbhrbcvxbunrbviruecnvuyvinuvxunvuivinviunvrunscinvxvgviutvsinvnkuavxmkufdbcukxvukvugrvvrvxrnvrcxvvgnvngjvnvcrgcvgsdfnxgvnsvnikvcgurckv",
   "userId": 1,
   "subTopicId": 1
-
 }
 
 ###
@@ -22,6 +20,16 @@ Content-Type: application/json
 {
   "userId": 1,
   "questionId": 1
+}
+
+###
+
+POST http://localhost:8080/api/questions/filter-by/
+Content-Type: application/json
+Accept: application/json
+
+{
+  "likesCount": 0
 }
 
 ###

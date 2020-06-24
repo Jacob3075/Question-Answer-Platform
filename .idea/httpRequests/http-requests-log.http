@@ -1,3 +1,392 @@
+POST http://localhost:8080/api/questions/filter-by/
+Content-Type: application/json
+Accept: application/json
+
+{
+  "likesCount": 0
+}
+
+<> 2020-06-24T021434.200.json
+
+###
+
+POST http://localhost:8080/api/questions/filter-by/
+Content-Type: application/json
+Accept: application/json
+
+{
+  "likesCount": 1
+}
+
+<> 2020-06-24T021429.200.json
+
+###
+
+POST http://localhost:8080/api/questions/filter-by/
+Content-Type: application/json
+Accept: application/json
+
+{
+  "likes": 1
+}
+
+<> 2020-06-24T021359.200.json
+
+###
+
+POST http://localhost:8080/api/questions/filter-by/
+Content-Type: application/json
+Accept: application/json
+
+{
+  "likes": 0
+}
+
+<> 2020-06-24T021341.200.json
+
+###
+
+POST http://localhost:8080/api/questions/filter-by/
+Content-Type: application/json
+Accept: application/json
+
+{
+}
+
+<> 2020-06-24T021316.200.json
+
+###
+
+POST http://localhost:8080/api/questions/filter-by-generalized/
+Content-Type: application/json
+Accept: application/json
+
+{
+}
+
+<> 2020-06-24T021309.405.json
+
+###
+
+POST http://localhost:8080/api/questions/filter-by-generalized/
+Content-Type: application/json
+Accept: application/json
+
+{
+  "date": "2020-06-24"
+}
+
+<> 2020-06-24T021124.200.json
+
+###
+
+POST http://localhost:8080/api/questions/filter-by-generalized/
+Content-Type: application/json
+Accept: application/json
+
+{
+  "date": "2020-06-23"
+}
+
+<> 2020-06-24T021056.200.json
+
+###
+
+POST http://localhost:8080/api/questions/filter-by-generalized/
+Content-Type: application/json
+Accept: application/json
+
+{
+  "date": "2020-06-23"
+}
+
+###
+
+POST http://localhost:8080/api/questions/filter-by-generalized/
+Content-Type: application/json
+Accept: application/json
+
+{
+}
+
+<> 2020-06-24T015116.200.json
+
+###
+
+POST http://localhost:8080/api/questions/filter-by-generalized/
+Content-Type: application/json
+Accept: application/json
+
+{
+  "date": "2020-06-24"
+}
+
+<> 2020-06-24T015024.200.json
+
+###
+
+POST http://localhost:8080/api/questions/filter-by-generalized/
+Content-Type: application/json
+Accept: application/json
+
+{
+}
+
+<> 2020-06-24T015010.200.json
+
+###
+
+POST http://localhost:8080/api/questions/filter-by-generalized/
+Content-Type: application/json
+Accept: application/json
+
+{
+  "companies": [
+    {
+      "id": 1,
+      "companyName": "New Company 1"
+    }
+  ]
+}
+
+<> 2020-06-24T014947.200.json
+
+###
+
+POST http://localhost:8080/api/questions/filter-by-generalized/
+Content-Type: application/json
+Accept: application/json
+
+{
+  "date": "2020-06-22",
+  "companies": [
+    {
+      "id": 1,
+      "companyName": "New Company 1"
+    }
+  ]
+}
+
+<> 2020-06-24T014940.200.json
+
+###
+
+POST http://localhost:8080/api/questions/filter-by-generalized/
+Content-Type: application/json
+Accept: application/json
+
+{
+  "companies": [
+    {
+      "id": 1,
+      "companyName": "New Company 1"
+    }
+  ]
+}
+
+<> 2020-06-24T014917.200.json
+
+###
+
+POST http://localhost:8080/api/questions/filter-by-generalized/
+Content-Type: application/json
+Accept: application/json
+
+{
+
+}
+
+<> 2020-06-24T014831.200.json
+
+###
+
+POST http://localhost:8080/api/questions/filter-by-generalized/
+Content-Type: application/json
+Accept: application/json
+
+{
+  "tags": [
+    {
+      "id": 2,
+      "tagName": "New Tag 2"
+    }
+  ]
+}
+
+<> 2020-06-24T014815.200.json
+
+###
+
+POST http://localhost:8080/api/questions/filter-by-generalized/
+Content-Type: application/json
+Accept: application/json
+
+{
+  "tags": [
+    {
+      "id": 1,
+      "tagName": "New Tag 1"
+    }
+  ]
+}
+
+<> 2020-06-24T014749.200.json
+
+###
+
+POST http://localhost:8080/api/questions/filter-by/
+Content-Type: application/json
+Accept: application/json
+
+{
+  "tags": [
+    {
+      "id": 1,
+      "tagName": "New Tag 1"
+    }
+  ]
+}
+
+<> 2020-06-24T014716.200.json
+
+###
+
+POST http://localhost:8080/api/questions/filter-by/
+Content-Type: application/json
+Accept: application/json
+
+{
+}
+
+<> 2020-06-24T014440.200.json
+
+###
+
+POST http://localhost:8080/api/questions/filter-by/
+
+Content-Type: application/json
+
+{
+}
+
+<> 2020-06-24T014141.415.json
+
+###
+
+GET http://localhost:8080/api/questions/1
+Accept: application/json
+
+<> 2020-06-24T014027.200.json
+
+###
+
+POST http://localhost:8080/api/questions/filter-by/
+
+Content-Type: application/json
+
+{
+}
+
+<> 2020-06-24T014018.415.json
+
+###
+
+POST http://localhost:8080/api/questions/filter-by-generalized/
+
+Content-Type: application/json
+
+{
+}
+
+<> 2020-06-24T014011.415.json
+
+###
+
+POST http://localhost:8080/api/questions/filter-by-generalized/
+
+Content-Type: application/json
+Accept: application/json
+
+{
+}
+
+<> 2020-06-24T013932.415.json
+
+###
+
+POST http://localhost:8080/api/questions/filter-by-generalized/
+Content-Type: application/json
+Accept: application/json
+
+{
+}
+
+<> 2020-06-24T013517.200.json
+
+###
+
+POST http://localhost:8080/api/questions/filter-by/
+Content-Type: application/json
+Accept: application/json
+
+{
+}
+
+<> 2020-06-24T013429.200.json
+
+###
+
+POST http://localhost:8080/api/questions/filter-by/
+Content-Type: application/json
+Accept: application/json
+
+{
+}
+
+<> 2020-06-24T123631.200.json
+
+###
+
+GET http://localhost:8080/api/questions/3
+Accept: application/json
+
+<> 2020-06-24T123347.200.json
+
+###
+
+POST http://localhost:8080/api/questions/filter-by/
+Content-Type: application/json
+Accept: application/json
+
+{
+}
+
+<> 2020-06-24T123317.200.json
+
+###
+
+POST http://localhost:8080/api/questions/filter-by/
+Content-Type: application/json
+Accept: application/json
+
+{
+}
+
+<> 2020-06-24T122649.200.json
+
+###
+
+POST http://localhost:8080/api/questions/filter-by/
+Content-Type: application/json
+Accept: application/json
+
+{
+}
+
+<> 2020-06-24T121923.500.json
+
+###
+
 GET http://localhost:8080/api/topics/
 Accept: application/json
 
@@ -200,304 +589,6 @@ Content-Type: application/json
     }
   ]
 }
-
-###
-
-GET http://localhost:8080/api/topics/
-Accept: application/json
-
-<> 2020-06-24T104153.200.json
-
-###
-
-POST http://localhost:8080/api/topics/
-Content-Type: application/json
-Accept: application/json
-
-{
-  "topicName": "Topic 2",
-  "subTopics": [
-    {
-      "id": 1,
-      "subTopicName": "New SubTopic 1"
-    },
-    {
-      "id": 2,
-      "subTopicName": "New SubTopic 2"
-    }
-  ]
-}
-
-<> 2020-06-24T104150.200.json
-
-###
-
-GET http://localhost:8080/api/topics/
-Accept: application/json
-
-<> 2020-06-24T104144.200.json
-
-###
-
-GET http://localhost:8080/api/subtopics/
-Accept: application/json
-
-<> 2020-06-24T104141.200.json
-
-###
-
-DELETE http://localhost:8080/api/subtopics/8
-
-###
-
-DELETE http://localhost:8080/api/subtopics/7
-
-###
-
-GET http://localhost:8080/api/subtopics/
-Accept: application/json
-
-<> 2020-06-24T104131.200.json
-
-###
-
-GET http://localhost:8080/api/topics/
-Accept: application/json
-
-<> 2020-06-24T104127.200.json
-
-###
-
-DELETE http://localhost:8080/api/topics/1
-
-###
-
-DELETE http://localhost:8080/api/subtopics/7
-
-<> 2020-06-24T104039.500.json
-
-###
-
-DELETE http://localhost:8080/api/subtopics/7
-
-<> 2020-06-24T104026.500.json
-
-###
-
-GET http://localhost:8080/api/subtopics/
-Accept: application/json
-
-<> 2020-06-24T104016.200.json
-
-###
-
-POST http://localhost:8080/api/topics/
-Content-Type: application/json
-Accept: application/json
-
-{
-  "topicName": "Topic 2",
-  "subTopics": [
-    {
-      "id": 1,
-      "subTopicName": "New SubTopic 1"
-    },
-    {
-      "id": 2,
-      "subTopicName": "New SubTopic 2"
-    }
-  ]
-}
-
-<> 2020-06-24T103952.500.json
-
-###
-
-GET http://localhost:8080/api/topics/
-Accept: application/json
-
-<> 2020-06-24T103944.200.json
-
-###
-
-POST http://localhost:8080/api/topics/
-Content-Type: application/json
-Accept: application/json
-
-{
-  "topicName": "Topic 2",
-  "subTopics": [
-    {
-      "id": 1,
-      "subTopicName": "New SubTopic 1"
-    },
-    {
-      "id": 2,
-      "subTopicName": "New SubTopic 2"
-    }
-  ]
-}
-
-<> 2020-06-24T102430.500.json
-
-###
-
-GET http://localhost:8080/api/topics/
-Accept: application/json
-
-<> 2020-06-24T102421.200.json
-
-###
-
-GET http://localhost:8080/api/subtopics/
-Accept: application/json
-
-<> 2020-06-24T101650.200.json
-
-###
-
-GET http://localhost:8080/api/topics/
-Accept: application/json
-
-<> 2020-06-24T101634.200.json
-
-###
-
-POST http://localhost:8080/api/topics/
-Content-Type: application/json
-Accept: application/json
-
-{
-  "topicName": "Topic 1",
-  "subTopics": [
-    {
-      "subTopicName": "New SubTopic 1"
-    },
-    {
-      "subTopicName": "New SubTopic 2"
-    }
-  ]
-}
-
-<> 2020-06-24T101631.200.json
-
-###
-
-GET http://localhost:8080/api/topics/
-Accept: application/json
-
-<> 2020-06-24T101628.200.json
-
-###
-
-POST http://localhost:8080/api/topics/
-Content-Type: application/json
-Accept: application/json
-
-{
-  "topicName": "Topic 1",
-  "subTopics": [
-    {
-      "subTopicName": "New SubTopic 1"
-    },
-    {
-      "subTopicName": "New SubTopic 2"
-    }
-  ]
-}
-
-<> 2020-06-24T101326.500.json
-
-###
-
-GET http://localhost:8080/api/topics/
-Accept: application/json
-
-<> 2020-06-24T101233.200.json
-
-###
-
-GET http://localhost:8080/api/subtopics/
-Accept: application/json
-
-<> 2020-06-24T101211.200.json
-
-###
-
-GET http://localhost:8080/api/subtopics/1
-Accept: application/json
-
-<> 2020-06-24T101206.200.json
-
-###
-
-DELETE http://localhost:8080/api/subtopics/6
-
-###
-
-POST http://localhost:8080/api/subtopics/
-Content-Type: application/json
-Accept: application/json
-
-{
-  "subTopicName": "New SubTopic 6"
-}
-
-<> 2020-06-24T101151.200.json
-
-###
-
-POST http://localhost:8080/api/subtopics/
-Content-Type: application/json
-Accept: application/json
-
-{
-  "subTopicName": "New SubTopic 5"
-}
-
-<> 2020-06-24T101145.200.json
-
-###
-
-POST http://localhost:8080/api/subtopics/
-Content-Type: application/json
-Accept: application/json
-
-{
-  "subTopicName": "New SubTopic 4"
-}
-
-<> 2020-06-24T101138.200.json
-
-###
-
-GET http://localhost:8080/api/subtopics/1
-Accept: application/json
-
-<> 2020-06-24T101118.200.json
-
-###
-
-GET http://localhost:8080/api/subtopics/
-Accept: application/json
-
-<> 2020-06-24T101113.200.json
-
-###
-
-PUT http://localhost:8080/api/subtopics/1
-Content-Type: application/json
-
-{
-  "subTopicName": "New SubTopic 1"
-}
-
-###
-
-GET http://localhost:8080/api/subtopics/
-Accept: application/json
-
-<> 2020-06-24T101100.200.json
 
 ###
 
