@@ -1,6 +1,6 @@
 package com.jacob.questionanswerplatform.services;
 
-import com.jacob.questionanswerplatform.daos.AnswerCommentDAO;
+import com.jacob.questionanswerplatform.daos.CommentDAO;
 import com.jacob.questionanswerplatform.daos.AnswerDAO;
 import com.jacob.questionanswerplatform.daos.UserDAO;
 import com.jacob.questionanswerplatform.dtos.GetCommentDTO;
@@ -18,12 +18,12 @@ import java.util.Optional;
 @Service
 public class CommentService {
 
-	private final AnswerCommentDAO answerCommentDAO;
-	private final AnswerDAO        answerDAO;
-	private final UserDAO          userDAO;
+	private final CommentDAO commentDAO;
+	private final AnswerDAO  answerDAO;
+	private final UserDAO    userDAO;
 
-	public CommentService(AnswerCommentDAO answerCommentDAO, AnswerDAO answerDAO, UserDAO userDAO) {
-		this.answerCommentDAO = answerCommentDAO;
+	public CommentService(CommentDAO commentDAO, AnswerDAO answerDAO, UserDAO userDAO) {
+		this.commentDAO = commentDAO;
 		this.answerDAO = answerDAO;
 		this.userDAO = userDAO;
 	}
@@ -40,13 +40,13 @@ public class CommentService {
 		userDAO.findById(commentDTO.getUserId())
 		       .ifPresent(comment::setUser);
 
-		return answerCommentDAO.saveAndFlush(comment).getId();
+		return commentDAO.saveAndFlush(comment).getId();
 
 	}
 
 	public GetCommentDTO getCommentDTO(Long id) {
 
-		Optional<Comment> optionalComment = answerCommentDAO.findById(id);
+		Optional<Comment> optionalComment = commentDAO.findById(id);
 		if (optionalComment.isEmpty()) throw new HttpClientErrorException(HttpStatus.NOT_FOUND);
 
 		Comment comment = optionalComment.get();

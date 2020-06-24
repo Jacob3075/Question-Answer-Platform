@@ -6,6 +6,7 @@ import com.jacob.questionanswerplatform.models.Topic;
 
 import java.util.List;
 import java.util.Set;
+import java.util.function.Predicate;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -17,31 +18,14 @@ public class SubTopicStream implements ForwardingStream<SubTopic> {
 		this.subTopics = subTopics;
 	}
 
-	public SubTopicStream filterNewSubTopics(SubTopicDAO subTopicDAO) {
-		return SubTopic.stream(this.getStream()
-		                           .filter(
-				                           subTopic -> this.isNewSubTopics(
-						                           subTopic.getSubTopicName(),
-						                           subTopicDAO
-				                           )
-		                           )
-		                           .collect(Collectors.toSet())
-		);
-
+	public void addSubTopics(SubTopicDAO subTopicDAO) {
+		this.getStream()
+		    .forEach(subTopicDAO::saveAndFlush);
 	}
 
 	@Override
 	public Stream<SubTopic> getStream() {
 		return subTopics.stream();
-	}
-
-	private boolean isNewSubTopics(String name, SubTopicDAO subTopicDAO) {
-		return subTopicDAO.findSubTopicBySubTopicName(name).isEmpty();
-	}
-
-	public void addSubTopics(SubTopicDAO subTopicDAO) {
-		this.getStream()
-		    .forEach(subTopicDAO::saveAndFlush);
 	}
 
 	public void removeSubTopicsFrom(Topic topic) {
@@ -55,5 +39,23 @@ public class SubTopicStream implements ForwardingStream<SubTopic> {
 		                                   .collect(Collectors.toSet());
 		subTopicsToAdd.forEach(subTopic -> subTopicDAO.findSubTopicBySubTopicName(subTopic.getSubTopicName())
 		                                              .ifPresent(subTopics::add));
+	}
+
+	public SubTopicStream filterNewSubTopics(SubTopicDAO subTopicDAO) {
+		return SubTopic.stream(
+				this.getStream()
+				    .filter(Predicate.not(this::isIdPresent))
+				    .filter(subTopic -> this.isNewSubTopics(subTopic, subTopicDAO))
+				    .collect(Collectors.toSet())
+		);
+
+	}
+
+	private boolean isIdPresent(SubTopic subTopic) {
+		return subTopic.getId() != null;
+	}
+
+	private boolean isNewSubTopics(SubTopic subTopic, SubTopicDAO subTopicDAO) {
+		return subTopicDAO.findSubTopicBySubTopicName(subTopic.getSubTopicName()).isEmpty();
 	}
 }

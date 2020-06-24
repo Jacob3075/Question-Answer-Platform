@@ -38,32 +38,4 @@ public class QuestionStream implements ForwardingStream<Question> {
 		return this.questions.stream();
 	}
 
-	public QuestionStream updateProperties(Long targetId, QuestionDAO questionDAO) {
-
-		Optional<Question> optionalSourceQuestion = this.getQuestion();
-		if (optionalSourceQuestion.isEmpty()) return Question.stream();
-
-		Question question = optionalSourceQuestion.get();
-
-		Optional<Question> optionalQuestion = questionDAO.findById(targetId);
-		if (optionalQuestion.isEmpty()) return Question.stream();
-
-		Question questionToUpdate = optionalQuestion.get();
-
-		questionToUpdate.setQuestionText(question.getQuestionText());
-		questionToUpdate.setCompanies(question.getCompanies());
-		questionToUpdate.setTags(question.getTags());
-//		questionToUpdate.setSubTopics(question.getSubTopics());
-
-		return Question.stream(questionToUpdate);
-	}
-
-	public boolean save(QuestionDAO questionDAO) {
-		Optional<Question> optionalQuestion = this.getQuestion();
-
-		if (optionalQuestion.isEmpty()) return false;
-
-		questionDAO.saveAndFlush(optionalQuestion.get());
-		return true;
-	}
 }

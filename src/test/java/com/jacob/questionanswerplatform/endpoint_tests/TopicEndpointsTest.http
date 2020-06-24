@@ -11,10 +11,10 @@ Accept: application/json
   "topicName": "Topic 5",
   "subTopics": [
     {
-      "subTopicName": "Sub Topic 1"
+      "subTopicName": "New SubTopic 2"
     },
     {
-      "subTopicName": "Sub Topic 10"
+      "subTopicName": "New SubTopic 10"
     }
   ]
 }
@@ -25,11 +25,20 @@ PUT http://localhost:8080/api/topics/3
 Content-Type: application/json
 
 {
-  "topicName": "New Topic 3"
+  "topicName": "Topic 2",
+  "subTopics": [
+    {
+      "id": 1,
+      "subTopicName": "New SubTopic 1"
+    },
+    {
+      "subTopicName": "New SubTopic 3"
+    }
+  ]
 }
 
 ###
 
-DELETE http://localhost:8080/api/topics/2
+DELETE http://localhost:8080/api/topics/5
 
 ###
