@@ -7,6 +7,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.sql.Date;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -22,6 +23,8 @@ public class Question {
 	private Long id;
 
 	private int likes;
+
+	private Date date;
 
 	@Column(name = "question")
 	private String questionText;
